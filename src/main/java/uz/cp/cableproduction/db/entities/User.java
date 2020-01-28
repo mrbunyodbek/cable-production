@@ -1,34 +1,78 @@
 package uz.cp.cableproduction.db.entities;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import uz.cp.cableproduction.db.entities.base.BaseEntity;
-import uz.cp.cableproduction.db.entities.enums.RoleName;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
+import java.util.Collection;
+import java.util.List;
 
-@EqualsAndHashCode(callSuper = true)
-@Data
-@Entity
-public class User extends BaseEntity {
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
+@Entity(name = "db_users")
+public class User extends BaseEntity implements UserDetails {
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String firstName;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String lastName;
 
-    @Enumerated(value = EnumType.STRING)
-    private RoleName roleName;
-
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String username;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String password;
 
+    private boolean accountNonExpired = true;
+
+    private boolean accountNonLocked = true;
+
+    private boolean credentialsNonExpired = true;
+
+    private boolean Enabled = true;
+
+    @ManyToMany
+    List<Role> roles;
+
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return roles;
+    }
+
+    @Override
+    public String getPassword() {
+        return this.password;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return this.accountNonExpired;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return this.accountNonLocked;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return this.credentialsNonExpired;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return this.Enabled;
+    }
 }
 

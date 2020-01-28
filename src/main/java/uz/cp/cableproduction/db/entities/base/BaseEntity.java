@@ -1,26 +1,25 @@
 package uz.cp.cableproduction.db.entities.base;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.UUID;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @MappedSuperclass
-public class BaseEntity {
+public abstract class BaseEntity {
 
     @Id
-    @Type(type = "org.hibernate.type.PostgresUUIDType")
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @CreationTimestamp
     @Column(nullable = false)
@@ -31,10 +30,15 @@ public class BaseEntity {
     private Timestamp updatedAt;
 
     @CreatedBy
-    private UUID createdBy;
+    @Column(nullable = false)
+    private int createdBy;
 
     @LastModifiedBy
-    private UUID updatedBy;
+    @Column(nullable = false)
+    private int updatedBy;
+
+    @Column(nullable = false)
+    private boolean  deleted;
 
 
 }

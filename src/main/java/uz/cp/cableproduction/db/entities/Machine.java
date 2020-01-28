@@ -6,26 +6,25 @@ import uz.cp.cableproduction.db.entities.base.BaseEntity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 import java.util.List;
 
-@Entity(name = "cables")
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
-public class Cable extends BaseEntity {
-
-    @Column(nullable = false)
-    private String name;
-
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity(name = "machine")
+public class Machine extends BaseEntity {
     @Column(nullable = false)
     private String type;
 
+    @Column(nullable = false)
+    private String model;
+
     private String description;
 
-    private boolean deleted = false;
+    @Column(nullable = false)
+    private double speed;
 
     @ManyToMany
-    private List<Machine> machines;
+    private List<Cable> cables;
 }
