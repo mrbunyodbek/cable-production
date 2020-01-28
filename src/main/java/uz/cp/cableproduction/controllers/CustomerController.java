@@ -30,7 +30,7 @@ public class CustomerController {
         return new ResponseEntity<>(customerDAO.findById(id), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/getByName")
+    @GetMapping(value = "/getName")
     public ResponseEntity<Customer> s(@PathVariable String name) {
         return new ResponseEntity<>(customerDAO.getByName(name), HttpStatus.OK);
     }
