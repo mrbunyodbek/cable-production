@@ -10,7 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/machines")
+@RequestMapping("/machines")
 public class MachineController {
 
     MachineDAO machineDAO;

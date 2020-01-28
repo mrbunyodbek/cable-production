@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("api/cables")
+@RequestMapping("/cables")
 public class CableController {
 
     private CableDAO cableDAO;
