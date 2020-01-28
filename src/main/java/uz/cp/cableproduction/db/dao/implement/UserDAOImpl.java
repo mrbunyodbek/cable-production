@@ -19,27 +19,27 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public List<User> getAll() {
-        return null;
+        return repository.findAll();
     }
 
     @Override
     public User getById(int id) {
-        return null;
+        return repository.findById(id);
     }
 
     @Override
     public User getByUsername(String username) {
-        return null;
+        return repository.findByUsername(username);
     }
 
     @Override
     public User getByFirstName(String firstName) {
-        return null;
+        return repository.findByFirstName(firstName);
     }
 
     @Override
     public User getByLastName(String lastName) {
-        return null;
+        return repository.findByLastName(lastName);
     }
 
 
