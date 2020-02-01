@@ -3,7 +3,6 @@ package uz.cp.cableproduction.db.dao.implement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uz.cp.cableproduction.collections.CustomerAndMessage;
-import uz.cp.cableproduction.db.entities.Cable;
 import uz.cp.cableproduction.db.entities.Customer;
 import uz.cp.cableproduction.db.dao.CustomerDAO;
 import uz.cp.cableproduction.db.repositories.CustomerRepository;

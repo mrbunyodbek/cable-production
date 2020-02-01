@@ -3,15 +3,14 @@ package uz.cp.cableproduction.collections;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import uz.cp.cableproduction.db.entities.Customer;
+import uz.cp.cableproduction.db.entities.documents.Production;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerAndMessage {
+public class ProductionAndMessage {
 
-    private Customer customer;
+    private Production production;
 
     private String message;
-
 }

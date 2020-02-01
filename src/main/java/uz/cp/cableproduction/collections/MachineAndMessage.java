@@ -9,7 +9,9 @@ import uz.cp.cableproduction.db.entities.Machine;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MachineAndMessage {
+
     private Machine machine;
+
     private String message;
 
 }
