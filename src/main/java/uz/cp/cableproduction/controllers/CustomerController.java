@@ -3,6 +3,7 @@ package uz.cp.cableproduction.controllers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import uz.cp.cableproduction.collections.CustomerAndMessage;
 import uz.cp.cableproduction.db.dao.CustomerDAO;
 import uz.cp.cableproduction.db.entities.Customer;
 
@@ -36,9 +37,8 @@ public class CustomerController {
     }
 
     @PostMapping(value = "/save")
-    public ResponseEntity<List<Customer>> saveCustomer(@Valid @RequestBody Customer customer) {
-        customerDAO.saveEdit(customer);
-        return new ResponseEntity<>(customerDAO.getAll(), HttpStatus.OK);
+    public ResponseEntity<CustomerAndMessage> saveCustomer(@Valid @RequestBody Customer customer) {
+        return new ResponseEntity<>(customerDAO.saveEdit(customer), HttpStatus.OK);
     }
 
     @PostMapping(value = "/delete/{id}")

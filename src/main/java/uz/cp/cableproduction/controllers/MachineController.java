@@ -3,10 +3,10 @@ package uz.cp.cableproduction.controllers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import uz.cp.cableproduction.collections.MachineAndMessage;
 import uz.cp.cableproduction.db.dao.MachineDAO;
 import uz.cp.cableproduction.db.entities.Machine;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -48,9 +48,9 @@ public class MachineController {
     }
 
     @PostMapping(value = "/save")
-    public ResponseEntity<List<Machine>> saveAndEditMachine(@Valid @RequestBody Machine machine) {
-        machineDAO.saveEdit(machine);
-        return new ResponseEntity<>(machineDAO.getAll(), HttpStatus.OK);
+    public ResponseEntity<MachineAndMessage> saveAndEditMachine(@RequestBody Machine machine) {
+        MachineAndMessage andMessage = machineDAO.saveEdit(machine);
+        return new ResponseEntity<>(andMessage, HttpStatus.OK);
     }
 
 }

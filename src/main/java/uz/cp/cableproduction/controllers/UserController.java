@@ -50,8 +50,7 @@ public class UserController {
 
     @PostMapping(value = "/save")
     public ResponseEntity<UserAndMessage> saveAndEditUser(@Valid @RequestBody User user) {
-        UserAndMessage uam = userDAO.saveUser(user);
-        return new ResponseEntity<>(uam, HttpStatus.OK);
+        return new ResponseEntity<>(userDAO.saveUser(user), HttpStatus.OK);
 
     }
 

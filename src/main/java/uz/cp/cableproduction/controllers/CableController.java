@@ -4,6 +4,7 @@ import org.apache.catalina.connector.ClientAbortException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import uz.cp.cableproduction.collections.CableAndMessage;
 import uz.cp.cableproduction.db.entities.Cable;
 import uz.cp.cableproduction.db.dao.CableDAO;
 
@@ -37,9 +38,9 @@ public class CableController {
     }
 
     @PostMapping(value = "/save")
-    public ResponseEntity<List<Cable>> saveEdit(@Valid @RequestBody Cable cable) {
-        cableDAO.saveEditCable(cable);
-        return new ResponseEntity<>(cableDAO.getAll(), HttpStatus.OK);
+    public ResponseEntity<CableAndMessage> saveEdit(@Valid @RequestBody Cable cable) {
+        CableAndMessage andMessage = cableDAO.saveEditCable(cable);
+        return new ResponseEntity<>(andMessage, HttpStatus.OK);
     }
 
     @GetMapping(value = "/delete")

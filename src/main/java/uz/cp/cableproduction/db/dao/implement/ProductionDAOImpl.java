@@ -1,5 +1,6 @@
 package uz.cp.cableproduction.db.dao.implement;
 
+import org.springframework.stereotype.Service;
 import uz.cp.cableproduction.collections.ProductionAndMessage;
 import uz.cp.cableproduction.db.dao.ProductionDAO;
 import uz.cp.cableproduction.db.entities.documents.Production;
@@ -9,6 +10,7 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
+@Service
 public class ProductionDAOImpl implements ProductionDAO {
     ProductionRepository repository;
 
