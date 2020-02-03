@@ -39,10 +39,12 @@ public class CustomerDAOImpl implements CustomerDAO {
         Customer saved;
         Customer temp = repository.findById(customer.getId());
 
-        if (temp != null) {
+        if (null != temp) {
+
             temp.setName(customer.getName());
             temp.setPassword(customer.getPassword());
             saved = repository.save(temp);
+
         } else {
             saved = repository.save(temp);
         }
@@ -50,7 +52,6 @@ public class CustomerDAOImpl implements CustomerDAO {
         CustomerAndMessage cam = new CustomerAndMessage();
         cam.setCustomer(saved);
         cam.setMessage("Customer has been saved!");
-
         return cam;
     }
 

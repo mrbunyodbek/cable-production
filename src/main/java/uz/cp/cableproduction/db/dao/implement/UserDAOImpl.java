@@ -49,15 +49,15 @@ public class UserDAOImpl implements UserDAO {
 
         User temp = repository.findById(user.getId());
 
-        if (temp != null) {
-            temp.setPassword(user.getPassword());
-            temp.setUsername(user.getUsername());
-            temp.setRoles(user.getRoles());
-
-            saved = repository.save(temp);
-        } else {
+//        if (temp != null) {
+//            temp.setPassword(user.getPassword());
+//            temp.setUsername(user.getUsername());
+//            temp.setRoles(user.getRoles());
+//
+//            saved = repository.save(temp);
+//        } else {
             saved = repository.save(user);
-        }
+//        }
 
         UserAndMessage uam = new UserAndMessage();
 

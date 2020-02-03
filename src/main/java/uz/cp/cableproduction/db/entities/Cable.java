@@ -8,12 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.util.List;
-
-@Entity(name = "cables")
+@EqualsAndHashCode(callSuper = true)
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Entity(name = "cables")
+
 public class Cable extends BaseEntity {
 
     @Column(nullable = false)
@@ -29,3 +29,5 @@ public class Cable extends BaseEntity {
     @ManyToMany
     private List<Machine> machines;
 }
+
+
