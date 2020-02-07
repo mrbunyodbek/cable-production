@@ -6,9 +6,6 @@ import lombok.*;
 import uz.cp.cableproduction.db.entities.base.BaseEntity;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.List;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -36,8 +33,7 @@ public class User extends BaseEntity {
 
     private boolean Enabled = true;
 
-    @ManyToMany
-    List<Role> roles;
+
 
 
 //    @Override

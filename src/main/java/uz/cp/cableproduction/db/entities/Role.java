@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "roles")
-public final class Role extends BaseEntity  {
+public final class Role extends BaseEntity {
 
     @Enumerated(value = EnumType.STRING)
     private RoleName roleName;

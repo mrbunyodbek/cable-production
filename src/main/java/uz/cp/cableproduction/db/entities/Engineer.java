@@ -23,8 +23,6 @@ public class Engineer extends BaseEntity {
     @Column(nullable = false)
     private String name;
 
-    @ManyToMany
-    private List<Machine> machines;
 
 }
 

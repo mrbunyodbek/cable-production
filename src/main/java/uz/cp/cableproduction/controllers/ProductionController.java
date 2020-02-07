@@ -28,11 +28,6 @@ public class ProductionController {
         return new ResponseEntity<>(productionDAO.getById(id), HttpStatus.OK);
     }
 
-    @GetMapping("/getCustomer")
-    public ResponseEntity<List<Production>> getProductionByCustomerId(@PathVariable int id) {
-        return new ResponseEntity<>(productionDAO.getAllByCustomerId(id), HttpStatus.OK);
-    }
-
     @GetMapping("/getAgent")
     public ResponseEntity<List<Production>> getProductionByAgent(@PathVariable int id) {
         return new ResponseEntity<>(productionDAO.getAllByAgentId(id), HttpStatus.OK);

@@ -26,11 +26,7 @@ public class Production extends BaseEntity {
     private Boolean jobDone = false;
 
     @Column(name = "engineer_id")
-    private Integer engineerId;
-
-    @Nullable
-    @Column(name = "customer_id")
-    private Integer customerId;
+    private int engineerId;
 
     @Enumerated(value = EnumType.STRING)
     @Column(name = "cabling_status")
@@ -39,7 +35,10 @@ public class Production extends BaseEntity {
     @Column(name = "agent_id")
     private Integer agentId;
 
-    @Column(name = "cable_length")
+    @Column(name = "cable_type")
+    private String cableType;
+
+    @Column(name = "cable_weight")
     private Double cableLength;
 
     @Column(name = "description", columnDefinition = "TEXT")

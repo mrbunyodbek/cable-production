@@ -11,8 +11,6 @@ public interface ProductionRepository extends JpaRepository<Production, Integer>
 
     List<Production> findAllByAgentId(int id);
 
-    List<Production> findAllByCustomerId(int id);
-
     List<Production> findAllByStatus(String status);
 
     List<Production> findAllByJobDoneTrue();

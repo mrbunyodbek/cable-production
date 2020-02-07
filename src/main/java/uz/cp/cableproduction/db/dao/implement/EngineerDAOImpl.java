@@ -40,7 +40,6 @@ public class EngineerDAOImpl implements EngineerDAO {
         Engineer temp = repository.findById(engineer.getId());
         if (temp != null) {
             temp.setName(engineer.getName());
-            temp.setMachines(engineer.getMachines());
             saved = repository.save(engineer);
 
         } else {

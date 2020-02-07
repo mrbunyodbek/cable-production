@@ -48,10 +48,9 @@ public class MachineDAOImpl implements MachineDAO {
     @Override
     public MachineAndMessage saveEdit(Machine machine) {
         Machine saved;
-        List list = new ArrayList();
+
         Machine temp = repository.findById(machine.getId());
         if (temp != null) {
-            list.add(temp.getCables());
             temp.setDescription(machine.getDescription());
             temp.setModel(machine.getModel());
             temp.setSpeed(machine.getSpeed());

@@ -29,11 +29,6 @@ public class ProductionDAOImpl implements ProductionDAO {
     }
 
     @Override
-    public List<Production> getAllByCustomerId(int id) {
-        return repository.findAllByCustomerId(id);
-    }
-
-    @Override
     public List<Production> getAllByAgentId(int id) {
         return repository.findAllByAgentId(id);
     }
@@ -78,4 +73,5 @@ public class ProductionDAOImpl implements ProductionDAO {
         production.setDeleted(true);
         return "Production was deleted";
     }
+
 }

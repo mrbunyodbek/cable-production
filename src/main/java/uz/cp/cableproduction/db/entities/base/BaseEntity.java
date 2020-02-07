@@ -38,7 +38,7 @@ public abstract class BaseEntity {
     private int updatedBy;
 
     @Column(nullable = false)
-    private boolean  deleted;
+    private boolean deleted;
 
 
 }

@@ -10,8 +10,6 @@ public interface ProductionDAO {
 
     Production getById(int id);
 
-    List<Production> getAllByCustomerId(int id);
-
     List<Production> getAllByAgentId(int id);
 
     List<Production> getAllByEngineerId(int id);

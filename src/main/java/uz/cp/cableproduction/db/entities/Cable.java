@@ -1,13 +1,11 @@
 package uz.cp.cableproduction.db.entities;
 
+
 import lombok.*;
 import uz.cp.cableproduction.db.entities.base.BaseEntity;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import java.util.List;
+
 @EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
@@ -26,8 +24,6 @@ public class Cable extends BaseEntity {
 
     private boolean deleted = false;
 
-    @ManyToMany
-    private List<Machine> machines;
 }
 
 
