@@ -1,5 +1,5 @@
 package uz.cp.cableproduction.db.enums;
 
-public enum MachineState {
+public enum MachineStateStatus {
     WAITING,PRODUCTION,CONFIGURATION,REPAIRING
 }

@@ -24,8 +24,13 @@ public class ProductionDAOImpl implements ProductionDAO {
     }
 
     @Override
-    public Production getById(int id) {
-        return repository.findById(id);
+    public List<Production> getByOrderId(int id) {
+        return repository.findAllByOrderId(id);
+    }
+
+    @Override
+    public Production getByMachineId(int id) {
+        return repository.findByMachineId(id);
     }
 
     @Override
@@ -48,6 +53,7 @@ public class ProductionDAOImpl implements ProductionDAO {
             temp.setCreatedBy(production.getCreatedBy());
             temp.setUpdatedAt(production.getUpdatedAt());
             temp.setUpdatedBy(production.getUpdatedBy());
+
             saved = repository.save(temp);
         } else {
             saved = repository.save(temp);

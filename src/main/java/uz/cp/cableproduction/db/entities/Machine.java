@@ -3,6 +3,7 @@ package uz.cp.cableproduction.db.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import uz.cp.cableproduction.db.entities.base.BaseEntity;
+import uz.cp.cableproduction.db.enums.MachineStateStatus;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,6 +28,9 @@ public class Machine extends BaseEntity {
 
     @Column(nullable = false)
     private double speed;
+
+    @Column(nullable = false)
+    private MachineStateStatus status=MachineStateStatus.WAITING;
 
 
 }

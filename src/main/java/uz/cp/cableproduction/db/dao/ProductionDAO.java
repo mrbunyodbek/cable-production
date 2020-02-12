@@ -8,7 +8,9 @@ import java.util.List;
 public interface ProductionDAO {
     List<Production> getAll();
 
-    Production getById(int id);
+    Production getByMachineId(int id);
+
+    List<Production> getByOrderId(int id);
 
     List<Production> getAllByAgentId(int id);
 

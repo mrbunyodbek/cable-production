@@ -25,7 +25,8 @@ public class ProductionController {
 
     @GetMapping("/get/{id}")
     public ResponseEntity<Production> getProductionById(@PathVariable int id) {
-        return new ResponseEntity<>(productionDAO.getById(id), HttpStatus.OK);
+//        return new ResponseEntity<>(productionDAO.getById(id), HttpStatus.OK);
+    return  null;
     }
 
     @GetMapping("/getAgent")

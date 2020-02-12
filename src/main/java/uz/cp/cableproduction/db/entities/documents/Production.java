@@ -1,9 +1,6 @@
 package uz.cp.cableproduction.db.entities.documents;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.lang.Nullable;
 import uz.cp.cableproduction.db.entities.base.BaseEntity;
 import uz.cp.cableproduction.db.enums.ProductionStatus;
@@ -15,11 +12,12 @@ import javax.persistence.Enumerated;
 import java.sql.Time;
 import java.time.LocalDateTime;
 
+@Entity(name = "production")
 @EqualsAndHashCode(callSuper = true)
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "production")
 public class Production extends BaseEntity {
 
     @Column(name = "is_job_done")
@@ -74,6 +72,12 @@ public class Production extends BaseEntity {
 
     @Column(nullable = false)
     private Time estimated;
+
+    @Column(nullable = false)
+    private int orderId;
+
+    @Column(nullable = false)
+    private int machineId;
 
 
 }
