@@ -11,9 +11,10 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import java.sql.Time;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 @Entity(name = "production")
-@EqualsAndHashCode(callSuper = true)
+//@EqualsAndHashCode(callSuper = true)
 @Getter
 @Setter
 @AllArgsConstructor
@@ -61,17 +62,17 @@ public class Production extends BaseEntity {
     @Column(name = "error_description", columnDefinition = "TEXT")
     private String descriptionError;
 
-    @Column(name = "error_started")
+    @Column
     private LocalDateTime errorStarted;
 
-    @Column(name = "error_ended")
+    @Column
     private LocalDateTime errorEnd;
 
-    @Column(name = "error_time")
+    @Column
     private String errorTime;
 
     @Column(nullable = false)
-    private Time estimated;
+    private long estimated;
 
     @Column(nullable = false)
     private int orderId;

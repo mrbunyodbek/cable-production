@@ -15,7 +15,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/cables")
 public class CableController {
-
     private CableDAO cableDAO;
 
     public CableController(CableDAO cableDAO) {

@@ -29,8 +29,4 @@ public class Machine extends BaseEntity {
     @Column(nullable = false)
     private double speed;
 
-    @Column(nullable = false)
-    private MachineStateStatus status=MachineStateStatus.WAITING;
-
-
 }

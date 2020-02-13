@@ -3,6 +3,7 @@ package uz.cp.cableproduction.db.dao;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.jpa.repository.Query;
 import uz.cp.cableproduction.db.entities.documents.Order;
 
 import java.sql.Timestamp;

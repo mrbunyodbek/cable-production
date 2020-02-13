@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity
+@Entity(name="orders")
 public class Order extends BaseEntity {
 
     @Column(nullable = false)

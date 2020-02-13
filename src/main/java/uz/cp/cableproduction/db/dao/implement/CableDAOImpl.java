@@ -3,10 +3,11 @@ package uz.cp.cableproduction.db.dao.implement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uz.cp.cableproduction.collections.CableAndMessage;
-import uz.cp.cableproduction.db.dao.CableDAO;
 import uz.cp.cableproduction.db.entities.Cable;
+import uz.cp.cableproduction.db.dao.CableDAO;
 import uz.cp.cableproduction.db.repositories.CableRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -42,6 +43,7 @@ public class CableDAOImpl implements CableDAO {
     @Override
     public CableAndMessage saveEditCable(Cable cable) {
         Cable saved;
+        List list = new ArrayList();
         Cable temp = repository.findById(cable.getId());
         if (temp != null) {
             temp.setDeleted(false);

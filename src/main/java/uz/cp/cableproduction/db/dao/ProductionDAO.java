@@ -1,6 +1,8 @@
 package uz.cp.cableproduction.db.dao;
 
 import uz.cp.cableproduction.collections.ProductionAndMessage;
+import uz.cp.cableproduction.collections.ProductionStats;
+import uz.cp.cableproduction.db.entities.Machine;
 import uz.cp.cableproduction.db.entities.documents.Production;
 
 import java.util.List;
@@ -21,6 +23,8 @@ public interface ProductionDAO {
     ProductionAndMessage saveAndEditProduction(Production production);
 
     String deleteProduction(int id);
+
+   List<Object[]> getOverallLoadTimeByMachine(Production production, Machine machine);
 
 
 }

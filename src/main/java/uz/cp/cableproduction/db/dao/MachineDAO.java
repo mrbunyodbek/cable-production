@@ -19,4 +19,6 @@ public interface MachineDAO {
     MachineAndMessage saveEdit(Machine machine);
 
     String deleteMachineById(int id);
+
+
 }

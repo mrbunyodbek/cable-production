@@ -26,6 +26,7 @@ public class MachineController {
 
     }
 
+
     @GetMapping(value = "/get/{id}")
     public ResponseEntity<Machine> getById(@PathVariable int id) {
         return new ResponseEntity<>(machineDAO.getById(id), HttpStatus.OK);
@@ -40,6 +41,7 @@ public class MachineController {
     public ResponseEntity<Machine> getBySpeed(@PathVariable double speed) {
         return new ResponseEntity<>(machineDAO.getBySpeed(speed), HttpStatus.OK);
     }
+
 
     @GetMapping(value = "/delete/{id}")
     public ResponseEntity<List<Machine>> deleteById(@PathVariable int id) {
