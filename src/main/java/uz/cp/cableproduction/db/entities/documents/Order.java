@@ -1,5 +1,6 @@
 package uz.cp.cableproduction.db.entities.documents;
 
+import com.helger.commons.lang.priviledged.IPrivilegedAction;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,35 +17,35 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity
+@Entity(name = "orders")
 public class Order extends BaseEntity {
 
-    @Column(nullable = false)
+    @Column()
     private int cableId;
 
-    @Column(nullable = false)
+    @Column()
     private double amount;
 
-    @CreationTimestamp
-    @Column(nullable = false)
-    private Timestamp orderStartDate;
+    private LocalDateTime orderStartDate;
 
-    @Column(nullable = false)
+    @Column()
     private LocalDateTime estimatedDate;
 
-    @Column(nullable = true)
+    @Column()
     private String description;
 
-    @Column(nullable = true)
+    @Column()
     private String customer;
 
-    @Column(nullable = false)
+    @Column()
     private boolean paymentStatus;
 
-    @Column(nullable = false)
+    @Column()
     private double cost;
 
-    @Column(nullable = false)
+    @Column()
     private double balance;
+
+    private boolean deleted;
 
 }

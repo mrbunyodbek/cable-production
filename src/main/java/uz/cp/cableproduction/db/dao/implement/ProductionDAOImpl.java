@@ -20,7 +20,7 @@ public class ProductionDAOImpl implements ProductionDAO {
 
     @Override
     public List<Production> getAll() {
-        return repository.findAll();
+        return repository.findAllByJobDoneFalseAndDeletedFalse();
     }
 
     @Override

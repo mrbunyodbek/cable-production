@@ -16,7 +16,7 @@ public interface ProductionRepository extends JpaRepository<Production, Integer>
 
     List<Production> findAllByStatus(String status);
 
-    List<Production> findAllByJobDoneTrue();
+    List<Production> findAllByJobDoneFalseAndDeletedFalse();
 
     Production findById(int id);
 
@@ -24,6 +24,7 @@ public interface ProductionRepository extends JpaRepository<Production, Integer>
 
     Production findByMachineId(int machineId);
 
-    int getOverallWorkTimeForMachines();
+    @Query ("SELECT m.id, m.model, count(p.estimated) FROM production p INNER JOIN machines m ON m.id = p.machineId WHERE p.status='PENDING' OR p.status='PRODUCING' OR p.status='DONE'")
+    List<Object[]> getOverallWorkTimeForMachines(Production production);
 
 }

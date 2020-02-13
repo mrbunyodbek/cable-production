@@ -18,13 +18,13 @@ import java.time.LocalDateTime;
 @Entity
 public class Payment extends BaseEntity {
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private double amount;
 
     @Column(nullable = false)
     private LocalDateTime paymentDate;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private int orderId;
 
 
