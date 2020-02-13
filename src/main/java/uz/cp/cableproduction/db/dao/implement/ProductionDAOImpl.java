@@ -2,15 +2,13 @@ package uz.cp.cableproduction.db.dao.implement;
 
 import org.springframework.stereotype.Service;
 import uz.cp.cableproduction.collections.ProductionAndMessage;
-import uz.cp.cableproduction.collections.ProductionStats;
 import uz.cp.cableproduction.db.dao.ProductionDAO;
-import uz.cp.cableproduction.db.entities.Machine;
 import uz.cp.cableproduction.db.entities.documents.Production;
+import uz.cp.cableproduction.db.entities.dto.MachinesDTO;
 import uz.cp.cableproduction.db.repositories.ProductionRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -20,12 +18,6 @@ import java.util.List;
 @Service
 public class ProductionDAOImpl implements ProductionDAO {
     ProductionRepository repository;
-    private EntityManager em;
-
-    @PersistenceContext
-    public void setEm(EntityManager em) {
-        this.em = em;
-    }
 
     public ProductionDAOImpl(ProductionRepository repository) {
         this.repository = repository;
@@ -69,6 +61,7 @@ public class ProductionDAOImpl implements ProductionDAO {
 
             saved = repository.save(temp);
         } else {
+            assert false;
             temp.setEstimated(ChronoUnit.DAYS.between(temp.getDateAccepted(),temp.getDateDone()));
             saved = repository.save(temp);
         }
@@ -95,8 +88,20 @@ public class ProductionDAOImpl implements ProductionDAO {
     }
 
     @Override
-    public List<Object[]> getOverallLoadTimeByMachine(Production production, Machine machine) {
-        return repository.getOverallWorkTimeForMachines(production,machine);
+    public List<MachinesDTO> getOverallLoadTimeByMachine() {
+        List<MachinesDTO> machinesDTO = new ArrayList<>();
+
+        List<Object[]> machines=repository.getOverallWorkTimeForMachines();
+        for (Object[] obj : machines) {
+            MachinesDTO dto = new MachinesDTO();
+
+            dto.setMachineName((String) obj[0]);
+            dto.setOweralWorkTime((Long) obj[1]);
+
+            machinesDTO.add(dto);
+        }
+        return machinesDTO;
+
     }
 //    @Override
 //    public List<ProductionStats> getOverallLoadTimeByMachine() {

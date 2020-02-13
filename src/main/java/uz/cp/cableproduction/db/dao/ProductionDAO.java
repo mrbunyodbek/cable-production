@@ -4,6 +4,7 @@ import uz.cp.cableproduction.collections.ProductionAndMessage;
 import uz.cp.cableproduction.collections.ProductionStats;
 import uz.cp.cableproduction.db.entities.Machine;
 import uz.cp.cableproduction.db.entities.documents.Production;
+import uz.cp.cableproduction.db.entities.dto.MachinesDTO;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public interface ProductionDAO {
 
     String deleteProduction(int id);
 
-   List<Object[]> getOverallLoadTimeByMachine(Production production, Machine machine);
+   List<MachinesDTO> getOverallLoadTimeByMachine();
 
 
 }
