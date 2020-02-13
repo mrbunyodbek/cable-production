@@ -102,14 +102,5 @@ public class ProductionDAOImpl implements ProductionDAO {
         return machinesDTO;
 
     }
-//    @Override
-//    public List<ProductionStats> getOverallLoadTimeByMachine() {
-//        List<ProductionStats> productionStatsList = new ArrayList<>();
-//
-//        String QUERY = "SELECT p.machineId FROM ";
-//        Query query = em.createQuery(QUERY);
-//
-//        return null;
-//    }
 
 }
