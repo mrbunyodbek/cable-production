@@ -10,6 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class MachinesDTO {
+    private int id;
     private String machineName;
     private long oweralWorkTime;
 }
