@@ -94,10 +94,9 @@ public class ProductionDAOImpl implements ProductionDAO {
         List<Object[]> machines=repository.getOverallWorkTimeForMachines();
         for (Object[] obj : machines) {
             MachinesDTO dto = new MachinesDTO();
-
-            dto.setMachineName((String) obj[0]);
-            dto.setOweralWorkTime((Long) obj[1]);
-
+            dto.setId((Integer) obj[0]);
+            dto.setMachineName((String) obj[1]);
+            dto.setOweralWorkTime((Long) obj[2]);
             machinesDTO.add(dto);
         }
         return machinesDTO;
