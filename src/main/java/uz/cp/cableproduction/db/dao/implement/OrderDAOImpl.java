@@ -2,6 +2,7 @@ package uz.cp.cableproduction.db.dao.implement;
 
 import uz.cp.cableproduction.db.dao.OrderDAO;
 import uz.cp.cableproduction.db.entities.documents.Order;
+import uz.cp.cableproduction.db.entities.documents.Production;
 import uz.cp.cableproduction.db.repositories.OrderRepository;
 
 import java.sql.Timestamp;
@@ -27,6 +28,11 @@ public class OrderDAOImpl implements OrderDAO {
     @Override
     public Order getByOrderStartDate(Timestamp startDate) {
         return repository.findByOrderStartDate(startDate);
+    }
+
+    @Override
+    public List<Production> getAllNoDoneProduction(int id) {
+        return repository.getAllNotDoneProduction(id);
     }
 
     @Override
