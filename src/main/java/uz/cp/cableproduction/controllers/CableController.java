@@ -1,12 +1,11 @@
 package uz.cp.cableproduction.controllers;
 
-import org.apache.catalina.connector.ClientAbortException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uz.cp.cableproduction.collections.CableAndMessage;
-import uz.cp.cableproduction.db.entities.Cable;
 import uz.cp.cableproduction.db.dao.CableDAO;
+import uz.cp.cableproduction.db.entities.Cable;
 
 import javax.validation.Valid;
 import java.util.List;

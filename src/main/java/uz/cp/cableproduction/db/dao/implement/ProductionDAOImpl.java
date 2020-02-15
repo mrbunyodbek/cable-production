@@ -7,8 +7,6 @@ import uz.cp.cableproduction.db.entities.documents.Production;
 import uz.cp.cableproduction.db.entities.dto.MachinesDTO;
 import uz.cp.cableproduction.db.repositories.ProductionRepository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -62,7 +60,7 @@ public class ProductionDAOImpl implements ProductionDAO {
             saved = repository.save(temp);
         } else {
             assert false;
-            temp.setEstimated(ChronoUnit.DAYS.between(temp.getDateAccepted(),temp.getDateDone()));
+            temp.setEstimated(ChronoUnit.DAYS.between(temp.getDateAccepted(), temp.getDateDone()));
             saved = repository.save(temp);
         }
         ProductionAndMessage pam = new ProductionAndMessage();
@@ -91,7 +89,7 @@ public class ProductionDAOImpl implements ProductionDAO {
     public List<MachinesDTO> getOverallLoadTimeByMachine() {
         List<MachinesDTO> machinesDTO = new ArrayList<>();
 
-        List<Object[]> machines=repository.getOverallWorkTimeForMachines();
+        List<Object[]> machines = repository.getOverallWorkTimeForMachines();
         for (Object[] obj : machines) {
             MachinesDTO dto = new MachinesDTO();
             dto.setId((Integer) obj[0]);

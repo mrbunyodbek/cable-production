@@ -1,14 +1,10 @@
 package uz.cp.cableproduction.collections;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 public class ProductionStats {
 
     private int machineId;

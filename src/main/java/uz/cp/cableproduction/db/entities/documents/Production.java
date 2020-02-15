@@ -70,13 +70,10 @@ public class Production extends BaseEntity {
     @Column(name = "error_time")
     private String errorTime;
 
-    @Column
-    private Time estimated;
+    private Long estimated;
 
-    @Column()
     private int orderId;
 
-    @Column(nullable = true)
     private int machineId;
 
 

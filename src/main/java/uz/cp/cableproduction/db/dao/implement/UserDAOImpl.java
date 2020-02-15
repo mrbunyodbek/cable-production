@@ -3,8 +3,8 @@ package uz.cp.cableproduction.db.dao.implement;
 
 import org.springframework.stereotype.Service;
 import uz.cp.cableproduction.collections.UserAndMessage;
-import uz.cp.cableproduction.db.entities.User;
 import uz.cp.cableproduction.db.dao.UserDAO;
+import uz.cp.cableproduction.db.entities.User;
 import uz.cp.cableproduction.db.repositories.UserRepository;
 
 import java.util.List;
@@ -49,15 +49,13 @@ public class UserDAOImpl implements UserDAO {
 
         User temp = repository.findById(user.getId());
 
-//        if (temp != null) {
-//            temp.setPassword(user.getPassword());
-//            temp.setUsername(user.getUsername());
-//            temp.setRoles(user.getRoles());
-//
-//            saved = repository.save(temp);
-//        } else {
-        saved = repository.save(user);
-//        }
+        if (temp != null) {
+            temp.setPassword(user.getPassword());
+            temp.setUsername(user.getUsername());
+            saved = repository.save(temp);
+        } else {
+            saved = repository.save(user);
+        }
 
         UserAndMessage uam = new UserAndMessage();
 

@@ -1,8 +1,6 @@
 package uz.cp.cableproduction.db.dao;
 
 import uz.cp.cableproduction.collections.ProductionAndMessage;
-import uz.cp.cableproduction.collections.ProductionStats;
-import uz.cp.cableproduction.db.entities.Machine;
 import uz.cp.cableproduction.db.entities.documents.Production;
 import uz.cp.cableproduction.db.entities.dto.MachinesDTO;
 

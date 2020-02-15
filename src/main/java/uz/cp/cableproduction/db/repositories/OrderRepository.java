@@ -12,13 +12,14 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 
     List<Order> findAllByDeletedFalse();
 
-    Order findByCableId(int id);
+    Order findById(int id);
 
     Order findByOrderStartDate(Timestamp creationTime);
 
-    Order findByPaymentStatus(boolean payment);
+    List<Order> findByPaymentStatus(boolean payment);
 
     @Query("SELECT p FROM production p WHERE p.orderId=:id and p.status  <> 'DONE'")
     List<Production> getAllNotDoneProduction(int id);
+
 
 }

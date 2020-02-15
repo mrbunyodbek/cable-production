@@ -1,6 +1,8 @@
 package uz.cp.cableproduction.db.entities.base;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedBy;
@@ -9,10 +11,9 @@ import org.springframework.data.annotation.LastModifiedBy;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 @MappedSuperclass
 public abstract class BaseEntity {
 

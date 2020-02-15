@@ -3,18 +3,16 @@ package uz.cp.cableproduction.db.dao.implement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uz.cp.cableproduction.collections.MachineAndMessage;
-import uz.cp.cableproduction.db.entities.Machine;
 import uz.cp.cableproduction.db.dao.MachineDAO;
+import uz.cp.cableproduction.db.entities.Machine;
 import uz.cp.cableproduction.db.repositories.MachineRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class MachineDAOImpl implements MachineDAO {
     MachineRepository repository;
 
-    @Autowired
     public MachineDAOImpl(MachineRepository repository) {
         this.repository = repository;
     }
